@@ -1,0 +1,11 @@
+/* home/home.wxss */
+/* 样式引入 */
+@import './style/box.wxss';
+.active {
+  color: red;
+}
+.ddd {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: burlywood;
+}

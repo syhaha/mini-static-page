@@ -1,0 +1,46 @@
+<!--home/home.wxml-->
+<text>哈哈哈</text>
+<view>我的计数：{{counter}}</view>
+<button bindtap="handleBtnClick">+</button> <!-- 点击事件bindtap -->
+<!-- 获取用户信息并授权 -->
+<button open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">点击授权</button>
+<!-- 展示用户信息 -->
+<open-data type="userNickName"></open-data>
+<view class="box1">564</view>
+<view>{{nowTime}}</view>
+<!-- 点击切换颜色 -->
+<button bindtap="handleSwichColor">切换颜色</button>
+<view class="{{isActive ? 'active' : ''}}">哈哈哈哈哈啊啊啊</view>
+<view>-------------- 条件判断 ----------------</view>
+<!-- 点击显示和隐藏 wx:if --> 
+<button bindtap="handleSwitchShow">切换显示</button>
+<view class="ddd" wx:if='{{isShow}}' ></view>
+<!-- wx:elif/wx:else -->
+<view wx:if="{{score >= 90}}">优秀</view>
+<view wx:elif="{{score >= 80}}">良好</view>
+<view wx:elif="{{score >= 60}}">及格</view>
+<view wx:else>不及格</view>
+<view>--------------- 列表渲染 ----------------</view>
+<!-- wx:for -->
+<view wx:for="{{['111', '222', '333', '444']}}" wx:key='id'>{{item}}</view>
+<!-- block标签 包裹作用不渲染 -->
+<!-- <block wx:for="{{2}}">
+  <view>456</view>
+  <view>456</view>
+  <view>456</view>
+</block> -->
+<view>--------------- template -----------------</view>
+<!-- 模板，进行代码复用 -->
+<!-- <template name="contentItem">
+  <button size="mini">{{btnText}}</button>
+  <view>{{viText}}</view>
+</template> -->
+<!-- 关于wxml的导入方式：
+  import导入：
+    1.主要是导入template
+    2.不能进行递归导入
+  include引入：
+    1.将公共的wxml中的组件抽取到一个文件
+    2.不能导入template/wxs,可以进行递归导入 -->
+<import src='/wxml/template.wxml' />   <!-- wxml文件引入 -->
+<template is="contentItem" data="{{btnText: '按键', viText: '哈哈哈'}}"/>
